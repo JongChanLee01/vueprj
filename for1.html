@@ -5,6 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>v-for</title>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        table, td{
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        td {
+            padding: 5px;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
@@ -40,6 +49,25 @@
                 {{(r-1) * col + c}} |
             </span>
         </p>
+        <hr>
+
+        <!-- 구구단 -->
+        <table>
+            <tr v-for="r in gu_row-1">
+                <td v-for="c in gu_col">
+                    {{r+1}} X {{c}} = {{(r+1)*c}} 
+                </td>
+            </tr>
+        </table>
+        <hr>
+
+        <table>
+            <tr v-for="r in gu_row">
+                <td v-for="c in gu_col-1">
+                    {{c+1}} X {{r}} = {{(c+1)*r}}
+                </td>
+            </tr>
+        </table>
 
     </div>
     <script>
@@ -48,6 +76,8 @@
                 return{
                     row:4,
                     col:5,
+                    gu_row:9,
+                    gu_col:9,
                     size:10,
                     words:["월요일","화요일","수요일","목요일","금요일","토요일","일요일"],
                     persons:[
