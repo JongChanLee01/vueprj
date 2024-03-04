@@ -50,6 +50,7 @@
         <div>
           <label>이메일:</label>
           <input type="text" v-model="email" v-on:input="errorHide1"/>
+          <!-- <input type="text" v-model="email" @:input="errorHide1"/> -->
           <div class="error" v-if="showError1">이메일은 필수 항목입니다.</div>
         </div>
         <div>
