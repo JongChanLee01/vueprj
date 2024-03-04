@@ -20,18 +20,30 @@
             <h3>value2:{{value2}}</h3>
             <button type="button" v-on:click="increase1"> v++ </button>
             <button type="button" v-on:click="increase2"> v2++ </button>
+            <hr>
+            <h4>{{person}}</h4>
+            <input type="text" v-model="newKey"><br>
+            <input type="text" v-model="newVal"><br>
+            <button type="button" v-on:click="addObj">속성추가</button>
         </div>
     </div>
     <script>
         let app = {
             data(){
                 return {
+                    person: { id: 100, name: "홍길동", age: 20 },
+                    newKey: "",
+                    newVal: "",
                     count:0,
                     a:[0,1,2],
-                    value1:0
+                    value1:0,
+                    value2:0,
                 }
             },
             methods: {
+                addObj(){
+                    this.person[this.newKey] = this.newVal;
+                },
                 increase(){
                     this.count++;
                     this.a[0]++;
