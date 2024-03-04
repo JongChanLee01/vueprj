@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+
+        <!-- .stop : 현재 이벤트의 추가 전파(propagation)을 중지한다는 의미 -->
+        <form v-on:click="hello('form')">
+            <input type="checkbox" v-model="value" v-on:click.stop>
+            <button type="button" v-on:click.stop="hello('button')">
+                버튼
+            </button>
+        </form>
+        <hr>
+
+        <!-- .self : 오직 자신(엘리먼트)과 관련된 이벤트만을 처리 -->
+        <form v-on:click.self="hello('form')">
+            <input type="checkbox" v-model="value">
+            <button type="button" v-on:click="hello('button')">
+                버튼
+            </button>
+        </form>
+        <hr>
+
+        <!-- .capture : 부모부터 처리하면서 다단계로 이벤트 실행(부모->자식) -->
+        <form v-on:click.capture="hello('form')">
+            <input type="checkbox" v-model="value">
+            <button type="button" v-on:click="hello('button')">
+                버튼
+            </button>
+        </form>
+    </div>
+    <script>
+        let app = {
+            data(){
+                return {
+                   value: false
+                }
+            },
+            methods: {
+                hello(who){
+                    alert(who + "클릭함");
+                }
+            }
+            
+        }
+        Vue.createApp(app).mount("#app");
+    </script>
+</body>
+</html>
