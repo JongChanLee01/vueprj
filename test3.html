@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h3>값변경과 화면 갱신</h3>
+        <p>Vue 엔진- Vue 3</p>
+        <h3>{{count}}</h3>
+        <h3>{{a}}</h3>
+        <div>
+            <button type="button" v-on:click="increase"> ++ </button>
+            <button type="button" v-on:click="decrease"> -- </button>
+            <hr>
+            <h3>value1:{{value1}}</h3>
+            <h3>value2:{{value2}}</h3>
+            <button type="button" v-on:click="increase1"> v++ </button>
+            <button type="button" v-on:click="increase2"> v2++ </button>
+        </div>
+    </div>
+    <script>
+        let app = {
+            data(){
+                return {
+                    count:0,
+                    a:[0,1,2],
+                    value1:0
+                }
+            },
+            methods: {
+                increase(){
+                    this.count++;
+                    this.a[0]++;
+                    let b = this.a.slice(0);
+                    b[0]++;
+                    this.a=b;
+                    let i = this.a.length;
+                    this.a.push(i);
+                },
+                decrease(){
+                    this.count--;
+                    this.a[0]--;
+                    let b = this.a.slice(0);
+                    b[0]--;
+                    this.a=b;
+                    this.a.pop();
+                },
+
+                increase1(){
+                    this.value1++;
+                },
+                increase2(){
+                    console.log(this.value2)
+                    if(typeof this.value2 == "undefined") this.value2 = 0;
+                    this.value2++;
+                    this.$forceUpdate(); // 강제로 화면 갱신(편법임)
+                },
+                
+            }
+        }
+        Vue.createApp(app).mount("#app");
+    </script>
+</body>
+</html>
