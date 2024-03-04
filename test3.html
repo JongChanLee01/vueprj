@@ -25,12 +25,29 @@
             <input type="text" v-model="newKey"><br>
             <input type="text" v-model="newVal"><br>
             <button type="button" v-on:click="addObj">속성추가</button>
+            <hr>
+            <h2>수정자 modifier</h2>
+
+            <!-- trim은 앞뒤공백을 제거  -->
+            <textarea cols="30" rows="5" v-model.trim="message"></textarea>
+            <pre>[{{message}}]</pre>
+            <hr>
+
+            <!-- lazy는 좀 늦게 읽어짐 -->
+            <input type="text" v-model.lazy="message">
+            <input type="text" v-model="message">
+            <br>
+            <input type="text" v-model.number="val">
+            <input type="number" v-model="val">
+            <div>{{val+val}}</div>
         </div>
     </div>
     <script>
         let app = {
             data(){
                 return {
+                    val:0,
+                    message:"",
                     person: { id: 100, name: "홍길동", age: 20 },
                     newKey: "",
                     newVal: "",
