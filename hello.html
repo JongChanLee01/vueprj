@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Study</title>
+
+    <!--뷰 라이브러리 -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h1>welcome</h1>
+        <!-- 중괄호 두 개 사용 -->
+        <h2>{{title}}</h2>
+        <p>안녕하세요</p>
+        <p>{{body}}</p>
+        <hr/>
+        
+        <!-- v-model로 스크립트와 연결 -->
+        <input type="text" v-model="title" /><br/>
+        <input type="text" v-model="body" /><br/>
+        <hr/>
+        <input type="text" v-model="title" /><br/>
+        <input type="text" v-model="body" /><br/>
+        <hr/>
+        <h2>checkbox</h2>
+        <p>{{value}}
+            <input type="checkbox" v-model="value">
+            <input type="checkbox" v-model="value">
+        </p>
+        <hr/>
+        <p>{{choice}}
+            <select v-model="choice">
+                <option>yellow</option>
+                <option>green</option>
+                <option>blue</option>
+                <option>red</option>
+            </select>
+            <input type="text" v-model="choice">
+        </p>
+        <div>
+            <input type="radio" value="html" v-model="it">html
+            <input type="radio" value="css" v-model="it">css
+            <input type="radio" value="java" v-model="it">java
+            <input type="radio" value="vue" v-model="it">vue
+            <br/>
+            {{it}}
+        </div>
+    </div>
+    <script>
+        let app = {
+            data(){
+                return({
+                    title: "감사합니다.",
+                    body: "good morning",
+                    value:false,
+                    choice:"yellow",
+                    it:"css"
+                })
+            }
+        }
+        // 마운트 해야지 사용할 수 있음
+        Vue.createApp(app).mount("#app");
+    </script>
+</body>
+
+</html>
