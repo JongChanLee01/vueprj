@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-for</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <span v-for="(s, i) in words" v-bind:key="s" v-on:click="remove(i)">
+            {{i}}:{{s}} -
+        </span>
+        <div>
+            <!-- @keydown.enter 엔터키를 누르면 add메소드 실행 -->
+            <input type="text" v-model="word" id="addText" @keydown.enter="add">
+            <button type="button" v-on:click="add">추가</button>
+        </div>
+        <hr>
+        <p v-for="(person, i) in persons" v-bind:key="person.id">
+            <span>{{person.id}} : </span>
+            <span>{{person.name}} : </span>
+            <span>{{person.age}} | </span>
+            <button type="button" v-on:click="remove2(i)">삭제</button>
+        </p>
+        <hr>
+
+        <p v-for="(value, key) in person">
+            <span>{{key}}</span> -
+            <span>{{value}}</span>
+        </p>
+        <hr>
+
+        <span v-for="i in size">
+            {{i}}-
+        </span>
+        <hr>
+        <p v-for="r in row">
+            <span v-for="c in col">
+                {{(r-1) * row + c}} -
+            </span>
+        </p>
+
+    </div>
+    <script>
+        let app = {
+            data(){
+                return{
+                    row:4,
+                    col:5,
+                    size:10,
+                    words:["월요일","화요일","수요일","목요일","금요일","토요일","일요일"],
+                    persons:[
+                        {id:100, name:"강감찬", age:70},
+                        {id:101, name:"이순신", age:50},
+                        {id:102, name:"장보고", age:30},
+                        {id:103, name:"유관순", age:20},
+                    ],
+                    person: { id: 104, name: "임꺽정", age: 20 }
+                };
+            },
+            methods: {
+                remove(i){
+                    this.words.splice(i,1);
+                },
+                remove2(i){
+                    this.persons.splice(i, 1);
+                },
+                add(i){
+                    this.words.push(this.word);
+                    this.word=""
+                    addText.focus();
+                }
+            }
+        }
+        Vue.createApp(app).mount("#app");
+    </script>
+</body>
+</html>
