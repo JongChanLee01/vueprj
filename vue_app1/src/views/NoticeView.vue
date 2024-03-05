@@ -1,11 +1,11 @@
 <template>
     <div>
-        <h1>오늘할일</h1>
+        <h1>공지사항</h1>
     </div>
 </template>
 <script>
     export default {
-        name:"TodoView"   
+        name:"NoticeView"   
     }
 </script>
 <style>

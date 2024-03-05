@@ -2,6 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import AboutView from '../views/AboutView.vue'
 import TodoView from '../views/TodoView.vue'
+import NoticeView from '../views/NoticeView.vue'
+import UserDetails from '../views/UserDetails.vue'
 
 const routes = [
   {
@@ -19,6 +21,19 @@ const routes = [
     path: '/todo',
     name: 'todo',
     component: () => TodoView
+  },
+  {
+    path: '/notice',
+    name: 'notice',
+    component: () => NoticeView
+  },
+  {
+    path: '/user/:id',
+    name: 'UserDetails',
+    component: () => UserDetails,
+
+    // props를 사용하여 라우터에서 동적으로 전달된 데이터
+    props: true
   }
 ]
 
