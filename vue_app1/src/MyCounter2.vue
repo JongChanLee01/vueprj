@@ -1,9 +1,15 @@
 <template>
-  <div>
+  <div :style="{ backgroundColor: color }">
     <h2>{{ title }}{{ value }} - {{ enabled }} - <small>{{ description }}</small></h2>
     <input type="number" v-model="counter" />
     <button type="button" @click="counter++"> ++ </button>
     <button type="button" @click="counter--"> -- </button>
+
+    <!--
+      $emit이벤트 전달할때 사용,
+      부모에서 send 이벤트를 전달한다. 파라미터는 counter
+    -->
+    <button type="button" @click="$emit('send', counter)"> 전달 </button>
   </div>
 </template>
 
@@ -11,18 +17,11 @@
     export default {
     name: "MyCounter1",
     // props: [ "title", "description" ],
-    props:{
-        title: {
-            type: String,
-            required: true
-        },
-        description: {
-            type: String,
-            default: "안녕하세요",
-            value: Number,
-            enabled: Boolean,
-        }
-    },
+    props: {
+      title: { type: String, required: true },
+      description: { type: String, default: "안녕하세요" },
+      color: { type: String, default: "#fff" }
+  },
     data() {
         return { counter: 0 };
     }
