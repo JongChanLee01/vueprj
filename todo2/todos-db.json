@@ -1,0 +1,22 @@
+{
+  "todos": [
+    {
+      "id": "1",
+      "dueDate": "2024-03-06",
+      "title": "과제",
+      "done": false
+    },
+    {
+      "id": "2",
+      "dueDate": "2024-03-07",
+      "title": "시험공부",
+      "done": false
+    },
+    {
+      "id": "3",
+      "dueDate": "2024-03-08",
+      "title": "코딩훈련",
+      "done": false
+    }
+  ]
+}
