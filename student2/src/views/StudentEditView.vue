@@ -34,9 +34,10 @@
 </template>
  
 <script>
-import axios from 'axios';
+// import axios from 'axios';
+import { loadStudent, updateStudent } from '../studentService';
  
-axios.defaults.baseURL = "http://localhost:3000";
+// axios.defaults.baseURL = "http://localhost:3000";
  
 export default {
   name: "StudentEditView",
@@ -45,30 +46,38 @@ export default {
       student: { }
     }
   },  
-  mounted() {
+  async mounted() {
     const id = this.$route.params.id;
-    this.loadStudent(id);
+    this.student = await loadStudent(id);
   },
+//   mounted() {
+//     const id = this.$route.params.id;
+//     this.loadStudent(id);
+//   },
   methods: {
-    async loadStudent(id) {
-      try {
-        const response = await axios.get("/students/" + id);
-        this.student = response.data;
-      } catch (error) {
-        alert('조회 에러: ' + (error instanceof Error ? error.message : error));
-      }
-    },
-    async updateStudent(student) {
-      try {
-        await axios.put("/students/" + student.id, student);
-      } catch (error) {
-        alert('저장 에러: ' + (error instanceof Error ? error.message : error));
-      }
-    },
+    // async loadStudent(id) {
+    //   try {
+    //     const response = await axios.get("/students/" + id);
+    //     this.student = response.data;
+    //   } catch (error) {
+    //     alert('조회 에러: ' + (error instanceof Error ? error.message : error));
+    //   }
+    // },
+    // async updateStudent(student) {
+    //   try {
+    //     await axios.put("/students/" + student.id, student);
+    //   } catch (error) {
+    //     alert('저장 에러: ' + (error instanceof Error ? error.message : error));
+    //   }
+    // },
     async save() {
-      await this.updateStudent(this.student);
+      await updateStudent(this.student);
       this.goList();
     },
+    // async save() {
+    //   await this.updateStudent(this.student);
+    //   this.goList();
+    // },
     goList() {
       this.$router.push("/");
     }
