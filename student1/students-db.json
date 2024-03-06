@@ -29,7 +29,7 @@
     {
       "id": "1",
       "studentNo": "201532006",
-      "name": "최하은",
+      "name": "홍길동",
       "phone": "010-4361-1145",
       "sex": "여",
       "email": "choi064@skhu.ac.kr",
@@ -1482,6 +1482,33 @@
       "phone": "010-5222-9960",
       "sex": "남",
       "email": "jeong205@skhu.ac.kr",
+      "departmentId": 1
+    },
+    {
+      "id": "0",
+      "studentNo": "201014099",
+      "name": "임꺽정",
+      "phone": "111",
+      "email": "h@a.c",
+      "sex": "남",
+      "departmentId": 1
+    },
+    {
+      "id": "0",
+      "studentNo": "201014099",
+      "name": "임꺽정",
+      "phone": "111",
+      "email": "h@a.c",
+      "sex": "남",
+      "departmentId": 1
+    },
+    {
+      "id": 0,
+      "studentNo": "201014099",
+      "name": "임꺽정",
+      "phone": "111",
+      "email": "h@a.c",
+      "sex": "남",
       "departmentId": 1
     },
     {
