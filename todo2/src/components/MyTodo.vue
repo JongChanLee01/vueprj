@@ -34,8 +34,6 @@ export default {
             id: 3,
             dueDate:"",
             todos: [],
-            title: "",
-            done:false
         }
     },
     mounted() { // 컴포넌트가 처음 화면에 보이게 될 때, 자동으로 호출되는 메소드
