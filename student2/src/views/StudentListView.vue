@@ -1,6 +1,7 @@
 <template>
   <div id="StudentListView">
     <h1>학생 목록</h1>
+    <button type="button" v-on:click="goCreate">등록</button>
     <table>
       <tr><td>id</td><td>학번</td><td>이름</td><td>전화</td><td>성별</td>
           <td>이메일</td><td>학과</td></tr>
@@ -49,13 +50,16 @@ export default {
     // },
     goEdit(id) {
       this.$router.push("/edit/" + id);
-    }
+    },
+    goCreate() {
+      this.$router.push("/create/");
+    },
   }
 }
 </script>
  
 <style scoped>
-h1 { border-bottom: 1px solid gray; }
+button { float: right; margin-top: -40px; }
 table { border-collapse: collapse; margin: 20px 0; width: 100%; }
 tr:nth-child(1) { background-color: #eee; text-align: center; }
 td { border: 1px solid gray; padding: 6px; }

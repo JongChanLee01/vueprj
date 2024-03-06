@@ -60,7 +60,7 @@
       "phone": "010-7875-1251",
       "sex": "남",
       "email": "lee097@skhu.ac.kr",
-      "departmentId": 4
+      "departmentId": "1"
     },
     {
       "id": "5",
@@ -96,7 +96,7 @@
       "phone": "010-3791-1522",
       "sex": "남",
       "email": "kim133@skhu.ac.kr",
-      "departmentId": 1
+      "departmentId": "1"
     },
     {
       "id": "9",
@@ -1483,6 +1483,15 @@
       "sex": "남",
       "email": "jeong205@skhu.ac.kr",
       "departmentId": 1
+    },
+    {
+      "id": "c977",
+      "studentNo": "123",
+      "name": "123",
+      "phone": "123",
+      "sex": "남",
+      "email": "123",
+      "departmentId": "1"
     }
   ]
 }

@@ -1,6 +1,5 @@
 // StudentListView, StudentEditView 두 컴포넌트에 axios 호출 코드가 있는데
 // axios 호출 코드를 studentService.js 파일로 분리
-
 import axios from 'axios';
  
 axios.defaults.baseURL = "http://localhost:3000";
@@ -28,5 +27,19 @@ export async function updateStudent(student) {
     await axios.put("/students/" + student.id, student);
   } catch (error) {
     alert('저장 에러: ' + (error instanceof Error ? error.message : error));
+  }
+}
+export async function insertStudent(student) {
+  try {
+    await axios.post("/students", student);
+  } catch (error) {
+    alert('저장 에러: ' + (error instanceof Error ? error.message : error));
+  }
+}
+export async function deleteStudent(id) {
+  try {
+    await axios.delete("/students/" + id);
+  } catch (error) {
+    alert('삭제 에러: ' + (error instanceof Error ? error.message : error));
   }
 }

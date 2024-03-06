@@ -28,6 +28,7 @@
     </div>
     <div>
       <button type="button" v-on:click="save">저장</button>
+      <button type="button" v-on:click="remove">삭제</button>
       <button type="button" v-on:click="goList">취소</button>
     </div>
   </div>
@@ -35,7 +36,7 @@
  
 <script>
 // import axios from 'axios';
-import { loadStudent, updateStudent } from '../studentService';
+import { loadStudent, updateStudent, deleteStudent } from '../studentService';
  
 // axios.defaults.baseURL = "http://localhost:3000";
  
@@ -78,6 +79,12 @@ export default {
     //   await this.updateStudent(this.student);
     //   this.goList();
     // },
+    async remove() {
+      if (confirm('삭제하시겠습니까?')) {
+        await deleteStudent(this.student.id);
+        this.goList();
+      }
+    },
     goList() {
       this.$router.push("/");
     }
